@@ -20,8 +20,7 @@ def get_db_conn():
     conn.row_factory = sqlite3.Row
     return conn
 
-@app.route('/')
-@app.route('/heart_stroke_data')
+@app.route('/api/v1.0/heart_stroke_data')
 @cross_origin()
 def heart_stroke_data():
     conn = get_db_conn()
