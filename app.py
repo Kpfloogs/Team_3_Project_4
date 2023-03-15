@@ -1,19 +1,22 @@
 import numpy as np
 import sqlite3
-from flask import Flask, render_template, jsonify
+from flask import Flask, request, render_template, jsonify
 from flask_cors import CORS, cross_origin
+import pickle4 as pickle
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route("/")
 def welcome():
-    """List all available api routes."""
-    return (
-        f"Available Routes:<br/>"
-        f"/api/v1.0/heart_stroke_data"
-    )
+    # """List all available api routes."""
+    # return (
+    #     f"Available Routes:<br/>"
+    #     f"/api/v1.0/heart_stroke_data"
+    # )
+    return render_template('index.html')
 
 def get_db_conn():
     conn = sqlite3.connect('heart_stroke.db')
@@ -47,6 +50,14 @@ def heart_stroke_data():
         data.append(heart_stroke_data)
 
     return jsonify(data)
+
+@app.route('/predict',methods=['POST'])
+def predict():
+    int_features = [x for x in request.form.values()]
+    final_features = [np.array(int_features)]
+    prediction = model.predict(final_features)
+    output = prediction[0]
+    
 
 if __name__ == '__main__':
     app.run(debug = True)
