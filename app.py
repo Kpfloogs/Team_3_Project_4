@@ -2,7 +2,7 @@ import numpy as np
 import sqlite3
 from flask import Flask, request, render_template, jsonify
 from flask_cors import CORS, cross_origin
-import pickle4 as pickle
+import pickle
 
 app = Flask(__name__)
 cors = CORS(app)
