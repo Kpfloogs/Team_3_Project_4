@@ -34,7 +34,7 @@
         <form>
             <div class="form-row justify-content-center row">
               <div class="form-group my-col align-self-center col-2">
-                <label for="inputEmail4">Gender</label>
+                <label for="gender">Gender</label>
                 <select id="inputState" class="form-control">
                     <option selected>Choose...</option>
                     <option>Male</option>
@@ -42,17 +42,13 @@
                   </select>
               </div>
               <div class="form-group my-col col-2">
-                <label for="inputPassword4">Age</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
-                    <option>1-18</option>
-                    <option>19-30</option>
-                  </select>
+                <label for="age">Age</label>
+                <input class="form-control" type="text" placeholder="input your age">
               </div>
             </div>
             <div class="form-row justify-content-center row">
                 <div class="form-group my-col align-self-center col-2">
-                  <label for="inputEmail4">Hypertension</label>
+                  <label for="hypertension">Hypertension</label>
                   <select id="inputState" class="form-control">
                       <option selected>Choose...</option>
                       <option>Yes</option>
@@ -60,7 +56,7 @@
                     </select>
                 </div>
                 <div class="form-group my-col col-2">
-                  <label for="inputPassword4">Heart Disease</label>
+                  <label for="heartdisease">Heart Disease</label>
                   <select id="inputState" class="form-control">
                       <option selected>Choose...</option>
                       <option>Yes</option>
@@ -70,7 +66,7 @@
               </div>
               <div class="form-row justify-content-center row">
                 <div class="form-group my-col align-self-center col-2">
-                  <label for="inputEmail4">Ever Married?</label>
+                  <label for="marriage">Ever Married?</label>
                   <select id="inputState" class="form-control">
                       <option selected>Choose...</option>
                       <option>Yes</option>
@@ -78,18 +74,20 @@
                     </select>
                 </div>
                 <div class="form-group my-col col-2">
-                  <label for="inputPassword4">Work Type</label>
+                  <label for="work">Work Type</label>
                   <select id="inputState" class="form-control">
                       <option selected>Choose...</option>
                       <option>Self Employed</option>
                       <option>Private</option>
                       <option>Government Job</option>
+                      <option>Never Worked</option>
+                      <option>Student</option>
                     </select>
                 </div>
               </div>
               <div class="form-row justify-content-center row">
                 <div class="form-group my-col align-self-center col-2">
-                  <label for="inputEmail4">Residence Type</label>
+                  <label for="residence">Residence Type</label>
                   <select id="inputState" class="form-control">
                       <option selected>Choose...</option>
                       <option>Urban</option>
@@ -97,31 +95,22 @@
                     </select>
                 </div>
                 <div class="form-group my-col col-2">
-                  <label for="inputPassword4">Avg Glucose Level</label>
-                  <select id="inputState" class="form-control">
-                      <option selected>Choose...</option>
-                      <option>Yes</option>
-                      <option>No</option>
-                    </select>
+                  <label for="glucose">Glucose Level</label>
+                  <input class="form-control" type="text" placeholder="input your level">
                 </div>
               </div>
               <div class="form-row justify-content-center row">
                 <div class="form-group my-col align-self-center col-2">
-                  <label for="inputEmail4"><a href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm">BMI</a></label>
-                  <select id="inputState" class="form-control">
-                      <option selected>Choose...</option>
-                      <option>Urban</option>
-                      <option>Rural</option>
-                    </select>
+                  <label for="bmi"><a href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm">BMI</a></label>
+                  <input class="form-control" type="text" placeholder="input BMI">
                 </div>
                 <div class="form-group my-col col-2">
-                  <label for="inputPassword4">Smoking Status</label>
+                  <label for="smoke">Smoking Status</label>
                   <select id="inputState" class="form-control">
                       <option selected>Choose...</option>
-                      <option>Smoker</option>
-                      <option>Non-Smoker</option>
-                      <option>Formerly Smoked</option>
-                      <option>Never Smoked</option>
+                      <option value="smoking_status_smokes">Smoker</option>
+                      <option value="smoking_status_never">Non-Smoker</option>
+                      <option value="smoking_status_formerly">Former Smoker</option>
                     </select>
                 </div>
               </div>
