@@ -1,0 +1,49 @@
+body {
+    margin: 0px;
+}
+
+
+.my-row {
+    height: 100px;
+}
+
+.my-col {
+    height: 100px;
+}
+
+.navbar-brand {
+    margin: 10px;
+    font-family: fantasy;
+    color: white;
+}
+
+.navbar-custom {
+    background-color: steelblue;
+}
+
+.nav-link {
+    color: white;
+    font-family: fantasy;
+}
+
+h1 {
+    font-family: fantasy;
+    color: steelblue;
+    margin-top: 10px;
+}
+
+.my-col1 {
+    color: steelblue;
+}
+
+p {
+    color: steel;
+    font-weight: bold;
+}
+
+.main-form {
+    width: 450px;
+    margin: auto;
+}
+
+
