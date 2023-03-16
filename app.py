@@ -12,15 +12,15 @@ def welcome():
     """List all available api routes."""
     return (
         f"Available Routes:<br/>"
-        f"/api/v1.0/heart_stroke_data"
+        f"/api/v1.0/brain_stroke_data"
     )
 
 def get_db_conn():
-    conn = sqlite3.connect('heart_stroke.db')
+    conn = sqlite3.connect('brain_stroke.db')
     conn.row_factory = sqlite3.Row
     return conn
 
-@app.route('/api/v1.0/heart_stroke_data')
+@app.route('/api/v1.0/brain_stroke_data')
 @cross_origin()
 def heart_stroke_data():
     conn = get_db_conn()
@@ -30,23 +30,25 @@ def heart_stroke_data():
     data = []
         
     for post in posts:
-        heart_stroke_data = {}
-        heart_stroke_data["id"] = post[0]
-        heart_stroke_data["gender"] = post[1]
-        heart_stroke_data["age"] = post[2]
-        heart_stroke_data["hypertension"] = post[3]
-        heart_stroke_data["heart_disease"] = post[4]
-        heart_stroke_data["ever_married"] = post[5]
-        heart_stroke_data["work_type"] = post[6]
-        heart_stroke_data["Residence_type"] = post[7]
-        heart_stroke_data["avg_glucose_level"] = post[8]
-        heart_stroke_data["bmi"] = post[9]
-        heart_stroke_data["smoking_status"] = post[10]
-        heart_stroke_data["stroke"] = post[11]
+        brain_stroke_data = {}
+        brain_stroke_data["id"] = post[0]
+        brain_stroke_data["gender"] = post[1]
+        brain_stroke_data["age"] = post[2]
+        brain_stroke_data["hypertension"] = post[3]
+        brain_stroke_data["heart_disease"] = post[4]
+        brain_stroke_data["ever_married"] = post[5]
+        brain_stroke_data["work_type"] = post[6]
+        brain_stroke_data["Residence_type"] = post[7]
+        brain_stroke_data["avg_glucose_level"] = post[8]
+        brain_stroke_data["bmi"] = post[9]
+        brain_stroke_data["smoking_status"] = post[10]
+        brain_stroke_data["stroke"] = post[11]
 
-        data.append(heart_stroke_data)
+        data.append(brain_stroke_data)
 
     return jsonify(data)
+
+    
 
 if __name__ == '__main__':
     app.run(debug = True)
