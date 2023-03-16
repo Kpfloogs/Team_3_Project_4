@@ -1,13 +1,11 @@
 import numpy as np
 import sqlite3
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, render_template, jsonify
 from flask_cors import CORS, cross_origin
-import pickle4 as pickle
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
-model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route("/")
 def welcome():
