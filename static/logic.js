@@ -1,4 +1,4 @@
-const url = "https://team-3-project-4.onrender.com/api/v1.0/heart_stroke_data"
+const url = "https://team-3-project-4.onrender.com/api/v1.0/brain_stroke_data"
 
 // looking at arrays in the console log:
 // d3.json(url).then(function(data) {

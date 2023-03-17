@@ -11,19 +11,17 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route("/")
 def welcome():
-    # """List all available api routes."""
-    # return (
-    #     f"Available Routes:<br/>"
-    #     f"/api/v1.0/heart_stroke_data"
-    # )
+    """List all available api routes."""
+    # return ("hello world")
     return render_template('index.html')
 
+
 def get_db_conn():
-    conn = sqlite3.connect('heart_stroke.db')
+    conn = sqlite3.connect('brain_stroke.db')
     conn.row_factory = sqlite3.Row
     return conn
 
-@app.route('/api/v1.0/heart_stroke_data')
+@app.route('/api/v1.0/brain_stroke_data')
 @cross_origin()
 def heart_stroke_data():
     conn = get_db_conn()
@@ -51,6 +49,14 @@ def heart_stroke_data():
 
     return jsonify(data)
 
+@app.route('/data')
+def data_page():
+    return render_template('data.html')
+
+@app.route('/predictor')
+def predict_page():
+    return render_template('predictor.html')
+
 @app.route('/predict',methods=['POST'])
 def predict():
     if request.method == 'POST':
@@ -65,8 +71,8 @@ def predict():
         age = int(request.form['age'])
         hypertension = int(request.form['hypertension'])
         heartdisease = int(request.form['heartdisease'])
-        glucose = int(request.form['glucose'])
-        bmi = int(request.form['bmi'])
+        glucose = float(request.form['glucose'])
+        bmi = float(request.form['bmi'])
 
         smoking_status = request.form['smoke']
 
@@ -99,7 +105,7 @@ def predict():
         
         prediction = model.predict(final_features)
 
-        return render_template('prediction.html', prediction=prediction)
+        return render_template('predictor.html', prediction=prediction)
     
 
 if __name__ == '__main__':

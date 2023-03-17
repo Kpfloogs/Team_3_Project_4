@@ -14,24 +14,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
 
     <!-- Our own CSS stylesheet -->
-    <link rel="stylesheet" href="style.css" media="screen">
+    <link rel="stylesheet" href="../static/style.css" media="screen">
 
   </head>
 
   <body>
-    <nav class="navbar navbar-expand navbar-custom">
-        <a href="../index.html" class="navbar-brand">Home</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="data.html" class="nav-link">Data</a>
-                </li>
-                <li class="nav-item">
-                    <a href="predictor.html" class="nav-link">Predictor</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    {% include 'navbar.html' %}
     <!-- Start of container -->
     <div class="container my-container">
       <div class="row justify-content-around my-row">
@@ -39,7 +27,7 @@
           <!-- <div class="clearfix"> -->
             <h1 class="fw-bold">Data</h1>
               <h6>The following table includes all of the data used for plotting during this project.</h6>
-              <div class="table table=striped" w3-include-html="data_render.html"></div>
+              <div class="table table=striped" w3-include-html="../static/data_render.html"></div>
             </div>
           </div>
         </div>
@@ -52,7 +40,7 @@
 
     <!-- Bootstrap CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script src="includes.js"></script>
+    <script src="../static/includes.js"></script>
   </body>
 
 </html>
