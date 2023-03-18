@@ -46,4 +46,28 @@ p {
     margin: auto;
 }
 
+.card {
+    width: 500px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 10px;
+    border: none;
+}
+
+.card2 {
+    width: 500px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-top: 10px
+}
+
+.card3 {
+    width: 800px;
+}
+
+h6 {
+    margin: 20px;
+    font-weight: normal;
+}
+
 

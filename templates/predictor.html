@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="../static/style.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.4.min.js"
+  integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+  crossorigin="anonymous"></script>
 </head>
 <body>
   {% include 'navbar.html' %}
@@ -53,25 +57,6 @@
                 </div>
               </div>
               <div class="form-row justify-content-center row">
-                <!-- <div class="form-group my-col align-self-center col-2">
-                  <label for="marriage">Ever Married?</label>
-                  <select id="inputState" class="form-control">
-                      <option selected>Choose...</option>
-                      <option>Yes</option>
-                      <option>No</option>
-                    </select>
-                </div> -->
-                <!-- <div class="form-group my-col col-2">
-                  <label for="work">Work Type</label>
-                  <select id="inputState" class="form-control">
-                      <option selected>Choose...</option>
-                      <option>Self Employed</option>
-                      <option>Private</option>
-                      <option>Government Job</option>
-                      <option>Never Worked</option>
-                      <option>Student</option>
-                    </select>
-                </div> -->
               </div>
               <div class="form-row justify-content-center row">
                 <div class="form-group my-col align-self-center col-2">
@@ -88,14 +73,6 @@
                     </select>
                 </div>
                 <div class="form-row justify-content-center row">
-                  <!-- <div class="form-group my-col align-self-center col-2">
-                    <label for="residence">Residence Type</label>
-                    <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>Urban</option>
-                        <option>Rural</option>
-                      </select>
-                  </div> -->
                   <div class="form-group my-col col-2">
                     <label for="glucose">Glucose Level</label>
                     <input id="glucose" name="glucose" class="form-control" type="text" placeholder="input your level">
@@ -103,33 +80,41 @@
                 </div>
               </div>
             <div class="form-row text-center">
-            <button id="user_submit" type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitButton">Submit</button>
+            <button id="user_submit" class="btn btn-primary">Submit</button>
+            <!-- <button id="user_submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitButton">Submit</button> -->
           </form>
           <div class="modal" id="submitButton">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <h2 class="modal-title">Your Stroke Prediciton is:</h2>
-                  <button id="submit_input" type="submit" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <button id="submit_input" type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
+                {% if prediction_text != '' %}
+                <script>
+                  $(document).ready(function(){
+                      $("#submitButton").modal('show');
+                  });
+              </script>
+                {% endif %}
                 <div class="modal-body" id="predictor">
                   <p class="text-danger"><b>{{prediction_text}}</b></p>
                 </div>
-                <!-- <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div> -->
               </div>
             </div>
           </div>
+          <h6>*This project was developed by students to demonstrate machine learning. If you suspect you are having
+            a stroke, call 911 immediately.
+          </h6>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 <script src="../static/logic.js"></script>
-<script src="https://d3js.org/d3.v5.min.js"></script>
+
 
 </body>
 </html>

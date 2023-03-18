@@ -57,7 +57,7 @@ def data_page():
 
 @app.route('/predictor')
 def predict_page():
-    return render_template('predictor.html')
+    return render_template('predictor.html', prediction_text="")
 
 @app.route('/predict',methods=['GET', 'POST'])
 def predict():
@@ -118,6 +118,7 @@ def predict():
             prediction = "No Stroke Risk"
         else:
             prediction = "Stroke Risk Possible"
+        print(prediction)
 
         return render_template('predictor.html', prediction_text="Stroke Prediction is: {}".format(prediction))
     
