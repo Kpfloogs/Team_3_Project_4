@@ -15,27 +15,27 @@ Kaggle Data Set | Stroke Prediction Dataset
 
 ### Technology Used
     - Pandas
-    - SQlite
-    - JavaScript
     - Plotly
-    - HTML with CSS page
-    - Render
     - Jupyter Notebook
-    - JSON
-    - Pickle
-    - sklearn (train_test_split; StandardScaler, transform, OneHOT Encoder)
+    - Seaborn
+    - Matplotlib
+    - sklearn (train_test_split; StandardScaler, transform, OneHOT Encoder, confusion matrix, LogisticRegression, RandomForestClassifier)
     - TensorFlow
     - D3
-
-### Data Model Optimization
-Our data was uploaded to a render page. 
+    - Pickle
+    - JSON
+    - Flask
+    - SQlite
+    - JavaScript
+    - HTML with CSS page
+    - Render (hosted our model on Render)
 
 ### Machine Learning
 We testing our data set using supervised machine learning. First we split our data into our features and target arrays. The split data was then processed into training and testingdataset, utilizing a random_state of 78. StandardScaler instantance as then created, fit, and scaled utilizing the transform fucntion.
 ```
 # Split our preprocessed data into our features and target arrays
-   y = stroke_df["stroke"]#.values
-   X = stroke_df.drop(["stroke"],1)#.values
+   y = stroke_df["stroke"]
+   X = stroke_df.drop(["stroke"],1)
 
 # Split the preprocessed data into a training and testing dataset
    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=78)
@@ -51,7 +51,7 @@ We testing our data set using supervised machine learning. First we split our da
    X_test_scaled = X_scaler.transform(X_test)
 ``` 
 
-Our data was then inputed into a LogisticRegression model and a Random Forest model and the data was fit tested within each model. 
+Our data was then inputed into a Logistic Regression model and a Random Forest model and the data was fit tested within each model. 
 
 ## Analysis
 Our logistic regression model was the most accurate wtih a 94.86% accuracy rating. Our logistic regression model preformed only slightly better (.0814%) better than the random forest modeling. 
