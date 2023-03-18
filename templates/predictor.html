@@ -19,49 +19,49 @@
                 <p>Input your data to explore your risk of stroke* </p>
             </div>
         </div>
-        <form id="user-input" action="{{ url_for('predict')}}" method ="POST">
+        <form id="user-input" action="/predict" method ="POST">
             <div class="form-row justify-content-center row">
               <div class="form-group my-col align-self-center col-2">
                 <label for="gender">Gender</label>
-                <select id="inputState" class="form-control">
+                <select id="gender" name="gender" class="form-control">
                     <option selected>Choose...</option>
-                    <option>Male</option>
-                    <option>Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                   </select>
               </div>
               <div class="form-group my-col col-2">
-                <label for="age">Age</label>
-                <input class="form-control" type="text" placeholder="input your age">
+                <label for='age'>Age</label>
+                <input id ='age' name='age' class="form-control" type="text" placeholder="input your age">
               </div>
             </div>
             <div class="form-row justify-content-center row">
                 <div class="form-group my-col align-self-center col-2">
                   <label for="hypertension">Hypertension</label>
-                  <select id="inputState" class="form-control">
+                  <select id="hypertension" name="hypertension" class="form-control">
                       <option selected>Choose...</option>
-                      <option>Yes</option>
-                      <option>No</option>
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
                     </select>
                 </div>
                 <div class="form-group my-col col-2">
                   <label for="heartdisease">Heart Disease</label>
-                  <select id="inputState" class="form-control">
+                  <select id="heartdisease" name="heartdisease" class="form-control">
                       <option selected>Choose...</option>
-                      <option>Yes</option>
-                      <option>No</option>
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
                     </select>
                 </div>
               </div>
               <div class="form-row justify-content-center row">
-                <div class="form-group my-col align-self-center col-2">
+                <!-- <div class="form-group my-col align-self-center col-2">
                   <label for="marriage">Ever Married?</label>
                   <select id="inputState" class="form-control">
                       <option selected>Choose...</option>
                       <option>Yes</option>
                       <option>No</option>
                     </select>
-                </div>
-                <div class="form-group my-col col-2">
+                </div> -->
+                <!-- <div class="form-group my-col col-2">
                   <label for="work">Work Type</label>
                   <select id="inputState" class="form-control">
                       <option selected>Choose...</option>
@@ -71,39 +71,39 @@
                       <option>Never Worked</option>
                       <option>Student</option>
                     </select>
-                </div>
-              </div>
-              <div class="form-row justify-content-center row">
-                <div class="form-group my-col align-self-center col-2">
-                  <label for="residence">Residence Type</label>
-                  <select id="inputState" class="form-control">
-                      <option selected>Choose...</option>
-                      <option>Urban</option>
-                      <option>Rural</option>
-                    </select>
-                </div>
-                <div class="form-group my-col col-2">
-                  <label for="glucose">Glucose Level</label>
-                  <input class="form-control" type="text" placeholder="input your level">
-                </div>
+                </div> -->
               </div>
               <div class="form-row justify-content-center row">
                 <div class="form-group my-col align-self-center col-2">
                   <label for="bmi"><a href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm">BMI</a></label>
-                  <input class="form-control" type="text" placeholder="input BMI">
+                  <input id="bmi" name="bmi" class="form-control" type="text" placeholder="input BMI">
                 </div>
                 <div class="form-group my-col col-2">
                   <label for="smoke">Smoking Status</label>
-                  <select id="inputState" class="form-control">
+                  <select id="smoke" name="smoke" class="form-control">
                       <option selected>Choose...</option>
                       <option value="smoking_status_smokes">Smoker</option>
                       <option value="smoking_status_never">Non-Smoker</option>
                       <option value="smoking_status_formerly">Former Smoker</option>
                     </select>
                 </div>
+                <div class="form-row justify-content-center row">
+                  <!-- <div class="form-group my-col align-self-center col-2">
+                    <label for="residence">Residence Type</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Urban</option>
+                        <option>Rural</option>
+                      </select>
+                  </div> -->
+                  <div class="form-group my-col col-2">
+                    <label for="glucose">Glucose Level</label>
+                    <input id="glucose" name="glucose" class="form-control" type="text" placeholder="input your level">
+                  </div>
+                </div>
               </div>
             <div class="form-row text-center">
-            <button id="user_submit" onclick="user_submit()" type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitButton">Submit</button>
+            <button id="user_submit" type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitButton">Submit</button>
           </form>
           <div class="modal" id="submitButton">
             <div class="modal-dialog">
@@ -115,7 +115,7 @@
                   </button>
                 </div>
                 <div class="modal-body" id="predictor">
-                  
+                  <p class="text-danger"><b>{{prediction_text}}</b></p>
                 </div>
                 <!-- <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -3,6 +3,8 @@ import sqlite3
 from flask import Flask, request, render_template, jsonify
 from flask_cors import CORS, cross_origin
 import pickle
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -57,16 +59,22 @@ def data_page():
 def predict_page():
     return render_template('predictor.html')
 
-@app.route('/predict',methods=['POST'])
+@app.route('/predict',methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
         gender = request.form['gender']
         if gender == 'Male':
-            gender_male = 1
-            gender_female = 0
+            gender_Male = 1
+            gender_Female = 0
+            gender_Other = 0
+        elif gender == 'Female':
+            gender_Male = 0
+            gender_Female = 1
+            gender_Other = 0
         else:
-            gender_male = 0
-            gender_female = 1
+            gender_Male = 0
+            gender_Female = 0
+            gender_Other = 1
 
         age = int(request.form['age'])
         hypertension = int(request.form['hypertension'])
@@ -99,13 +107,19 @@ def predict():
             smoking_status_formerly = 0
             smoking_status_never = 0
             smoking_status_smokes = 0
-
-        final_features = np.array([[gender_male, gender_female, age, hypertension, heartdisease, glucose, bmi, smoking_status_Unkown, 
-                                    smoking_status_formerly, smoking_status_never, smoking_status_smokes]])
         
-        prediction = model.predict(final_features)
+        feature = scaler.fit_transform([[gender_Male, gender_Female, gender_Other, age, hypertension, heartdisease, glucose, bmi, smoking_status_Unkown, 
+                                  smoking_status_formerly, smoking_status_never, smoking_status_smokes]])
+        
+        
+        prediction = model.predict(feature)[0]
 
-        return render_template('predictor.html', prediction=prediction)
+        if prediction==0:
+            prediction = "No Stroke Risk"
+        else:
+            prediction = "Stroke Risk Possible"
+
+        return render_template('predictor.html', prediction_text="Stroke Prediction is: {}".format(prediction))
     
 
 if __name__ == '__main__':
