@@ -8,22 +8,10 @@
   <title>Stroke Machine Learning Prediction</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand navbar-custom">
-        <a href="../index.html" class="navbar-brand">Home</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="data.html" class="nav-link">Data</a>
-                </li>
-                <li class="nav-item">
-                    <a href="predictor.html" class="nav-link">Predictor</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  {% include 'navbar.html' %}
     <div class="container my-container">
         <div class="row justify-content-center my-row">
             <div class="col-12 my-col1 text-center">
@@ -31,49 +19,49 @@
                 <p>Input your data to explore your risk of stroke* </p>
             </div>
         </div>
-        <form>
+        <form id="user-input" action="/predict" method ="POST">
             <div class="form-row justify-content-center row">
               <div class="form-group my-col align-self-center col-2">
                 <label for="gender">Gender</label>
-                <select id="inputState" class="form-control">
+                <select id="gender" name="gender" class="form-control">
                     <option selected>Choose...</option>
-                    <option>Male</option>
-                    <option>Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                   </select>
               </div>
               <div class="form-group my-col col-2">
-                <label for="age">Age</label>
-                <input class="form-control" type="text" placeholder="input your age">
+                <label for='age'>Age</label>
+                <input id ='age' name='age' class="form-control" type="text" placeholder="input your age">
               </div>
             </div>
             <div class="form-row justify-content-center row">
                 <div class="form-group my-col align-self-center col-2">
                   <label for="hypertension">Hypertension</label>
-                  <select id="inputState" class="form-control">
+                  <select id="hypertension" name="hypertension" class="form-control">
                       <option selected>Choose...</option>
-                      <option>Yes</option>
-                      <option>No</option>
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
                     </select>
                 </div>
                 <div class="form-group my-col col-2">
                   <label for="heartdisease">Heart Disease</label>
-                  <select id="inputState" class="form-control">
+                  <select id="heartdisease" name="heartdisease" class="form-control">
                       <option selected>Choose...</option>
-                      <option>Yes</option>
-                      <option>No</option>
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
                     </select>
                 </div>
               </div>
               <div class="form-row justify-content-center row">
-                <div class="form-group my-col align-self-center col-2">
+                <!-- <div class="form-group my-col align-self-center col-2">
                   <label for="marriage">Ever Married?</label>
                   <select id="inputState" class="form-control">
                       <option selected>Choose...</option>
                       <option>Yes</option>
                       <option>No</option>
                     </select>
-                </div>
-                <div class="form-group my-col col-2">
+                </div> -->
+                <!-- <div class="form-group my-col col-2">
                   <label for="work">Work Type</label>
                   <select id="inputState" class="form-control">
                       <option selected>Choose...</option>
@@ -83,51 +71,51 @@
                       <option>Never Worked</option>
                       <option>Student</option>
                     </select>
-                </div>
-              </div>
-              <div class="form-row justify-content-center row">
-                <div class="form-group my-col align-self-center col-2">
-                  <label for="residence">Residence Type</label>
-                  <select id="inputState" class="form-control">
-                      <option selected>Choose...</option>
-                      <option>Urban</option>
-                      <option>Rural</option>
-                    </select>
-                </div>
-                <div class="form-group my-col col-2">
-                  <label for="glucose">Glucose Level</label>
-                  <input class="form-control" type="text" placeholder="input your level">
-                </div>
+                </div> -->
               </div>
               <div class="form-row justify-content-center row">
                 <div class="form-group my-col align-self-center col-2">
                   <label for="bmi"><a href="https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm">BMI</a></label>
-                  <input class="form-control" type="text" placeholder="input BMI">
+                  <input id="bmi" name="bmi" class="form-control" type="text" placeholder="input BMI">
                 </div>
                 <div class="form-group my-col col-2">
                   <label for="smoke">Smoking Status</label>
-                  <select id="inputState" class="form-control">
+                  <select id="smoke" name="smoke" class="form-control">
                       <option selected>Choose...</option>
                       <option value="smoking_status_smokes">Smoker</option>
                       <option value="smoking_status_never">Non-Smoker</option>
                       <option value="smoking_status_formerly">Former Smoker</option>
                     </select>
                 </div>
+                <div class="form-row justify-content-center row">
+                  <!-- <div class="form-group my-col align-self-center col-2">
+                    <label for="residence">Residence Type</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Urban</option>
+                        <option>Rural</option>
+                      </select>
+                  </div> -->
+                  <div class="form-group my-col col-2">
+                    <label for="glucose">Glucose Level</label>
+                    <input id="glucose" name="glucose" class="form-control" type="text" placeholder="input your level">
+                  </div>
+                </div>
               </div>
             <div class="form-row text-center">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitButton">Submit</button>
+            <button id="user_submit" type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitButton">Submit</button>
           </form>
           <div class="modal" id="submitButton">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <h2 class="modal-title">Your Stroke Prediciton is:</h2>
-                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                  <button id="submit_input" type="submit" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
-                  <p>data to pull in from javascript</p>
+                <div class="modal-body" id="predictor">
+                  <p class="text-danger"><b>{{prediction_text}}</b></p>
                 </div>
                 <!-- <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -140,7 +128,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script> -->
+<script src="../static/logic.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
 
 </body>
 </html>
