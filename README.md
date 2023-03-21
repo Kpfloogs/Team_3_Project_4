@@ -54,7 +54,7 @@ We testing our data set using supervised machine learning. First we split our da
 Our data was then inputed into a Logistic Regression model and a Random Forest model and the data was fit tested within each model.
 
 ## Analysis
-Our logistic regression model was the most accurate wtih a 94.86% accuracy rating. Our logistic regression model preformed only slightly better (.0814%) better than the random forest modeling.
+Our logistic regression model was the most accurate with a 94.9% accuracy rating. Our logistic regression model preformed only slightly better (.24%) better than the random forest modeling.
 
 ### *Logistic Regression*
 ```
