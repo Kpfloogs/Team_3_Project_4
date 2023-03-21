@@ -23,7 +23,6 @@ Kaggle Data Set | Stroke Prediction Dataset
     - Seaborn
     - Matplotlib
     - sklearn (train_test_split; StandardScaler, transform, OneHOT Encoder, confusion matrix, LogisticRegression, RandomForestClassifier)
-    - TensorFlow
     - D3
     - Pickle
     - JSON
@@ -75,7 +74,7 @@ Our logistic regression model was the most accurate wtih a 94.86% accuracy ratin
    print(f'Actual:\t\t{list(y_test[:10])}')
    print(f'Predicted:\t{list(model.predict(X_test[:10]))}')
 ```
-Our data trained at a 95.97% training data score; with a testing data score of 94.86%
+Our data trained at a 96% training data score; with a testing data score of 95%
 
 ### *Random Forest*
 ```
@@ -94,7 +93,7 @@ Our data trained at a 95.97% training data score; with a testing data score of 9
    print(f'Training Score: {clf.score(X_train_scaled, y_train)}')
    print(f'Testing Score: {clf.score(X_test_scaled, y_test)}')
 ```
-Our data trained at 100% with a testing stcore of 94.78%.
+Our data trained at 100% with a testing stcore of 94.62%.
 
 ### Visualizations
 When looking at our data, you can see the coorelation between each individual risk factor (machine learning features) and their stroke risk. From this map you can draw the conclusion that you even though you may have some risk factors; their is not a strong coorelation between any 2 of the factors and having a higher change of a stroke.
@@ -111,7 +110,7 @@ Our site contains 3 seperate pages, the home screen that shows the above visuali
 
 **predictor snapshot**
 
-This predictor page is the go to page that the user will input via drop downs their information. Upon completion of entereing your informaiton and pressing the submit button; the values makes a call out to our API; and check the values against our predictor model; and send back a result in teh form of a pop up box letting the user know if they are at risk or having a stroke or not.
+This predictor page is the go to page that the user will input via drop downs their information. Upon completion of entereing your informaiton and pressing the submit button; the values makes a call out to our API; and check the values against our predictor model; and send back a result in the form of a pop up box letting the user know if they are at risk or having a stroke or not.
 
 **risk indicator snapshot (both)**
 
@@ -120,7 +119,9 @@ If we had more time, I would suggest that we update the graphs, to match the use
 
 Our data set also included 3 different factors that were not medical; residency type (urban, rural), marital status; and work type (private, government, self-employeed). It would be interesting to dive more into those factors to see if what changes, if any would be made to our machine learning model.
 
-There are many different machine learning models for us to choose from. We choose the models that we understood the best. Future adjustments could be made to look at additional models, to see if there are better outcomes; but our accuracy rating of just under 95% is fairly accurate.
+There are many different machine learning models for us to choose from. We choose the models that we understood the best. Future adjustments could be made to look at additional models, to see if there are better outcomes; but our accuracy rating of 95% is fairly accurate.
+
+It would be intersting to test our data against another stroke data set to see if our model predictions were similar to other; and how our model held up with additional data.
 
 ## Shout Outs, License and Disclamimer
 This is NOT medical advice. If you are concerned for your well-being please seek medical care, especially if you are experiencing any stroke like symptoms, please call 9-1-1 and seek emergency medical care.
