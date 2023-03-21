@@ -94,8 +94,12 @@ Our data trained at a 95.97% training data score; with a testing data score of 9
 Our data trained at 100% with a testing stcore of 94.78%.
 
 ### Visualizations
+When looking at our data, you can see the coorelation between each individual risk factor (machine learning features) and their stroke risk.  From this map you can draw the conclusion that you even though you may have some risk factors; their is not a strong coorelation between any 2 of the factors and having a higher change of a stroke.
+
+
 
 ### Future Adjustments
+If we had more time, I would suggest that we update the graphs, to match the user inputs for their stroke
 
 ## ShoutOuts, License and Disclamimer
 This is NOT medical advice. If you are concerned for your well-being please seek medical care, especially if you are experiencing any stroke like symptoms, please call 9-1-1 and seek emergency medical care.
