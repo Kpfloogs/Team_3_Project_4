@@ -1,6 +1,6 @@
 certifi
 Click
-Flask
+Flask == 2.2.2
 Flask-SQLAlchemy
 Gunicorn
 itsdangerous
@@ -12,10 +12,11 @@ psycopg2
 python-dateutil
 pytz
 six
-sklearn == 1.0.2
+scikit-learn == 1.0.2
 SQLAlchemy
 Werkzeug
 wincertstore
 flask_cors
 pickle4 == 0.0.1
 pickleshare == 0.7.5
+sqlite == 3.32.3 
