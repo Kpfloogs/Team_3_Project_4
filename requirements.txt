@@ -16,4 +16,5 @@ SQLAlchemy
 Werkzeug
 wincertstore
 flask_cors
-pickle
+pickle4=0.0.1
+pickleshare=0.7.5
