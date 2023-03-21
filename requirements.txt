@@ -19,4 +19,3 @@ wincertstore
 flask_cors
 pickle4 == 0.0.1
 pickleshare == 0.7.5
-sqlite == 3.32.3 
