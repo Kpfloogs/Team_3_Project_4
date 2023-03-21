@@ -12,6 +12,7 @@ psycopg2
 python-dateutil
 pytz
 six
+sklearn == 1.0.2
 SQLAlchemy
 Werkzeug
 wincertstore
