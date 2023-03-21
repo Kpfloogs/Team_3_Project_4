@@ -1,6 +1,8 @@
 # Team_3_Project_4 | Stroke Predictor
 We plan to analyze a kaggle datasource around health factors that may cause a stroke. In our analysis we hope to uncover medical factors that lead to strokes, such as gender, is the patient has had heart disease, hypertension, etc. Then creating a user input menu of dropdowns that when using our supervised learning model will determine from the users inputs if they are likely to have a stroke. 
 
+**no stroke risk**
+
 ## Project Team
     - Kathleen Pflugi
     - Lauren Cadogan
@@ -14,6 +16,7 @@ Kaggle Data Set | Stroke Prediction Dataset
     https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset
 
 ### Technology Used
+    - GitHub
     - Pandas
     - Plotly
     - Jupyter Notebook
@@ -56,7 +59,7 @@ Our data was then inputed into a Logistic Regression model and a Random Forest m
 ## Analysis
 Our logistic regression model was the most accurate wtih a 94.86% accuracy rating. Our logistic regression model preformed only slightly better (.0814%) better than the random forest modeling. 
 
-*Logistic Regression*
+### *Logistic Regression*
 ```
 # Train a Logistic Regression model and print the model score
 # Create the model
@@ -74,7 +77,7 @@ Our logistic regression model was the most accurate wtih a 94.86% accuracy ratin
 ```
 Our data trained at a 95.97% training data score; with a testing data score of 94.86%
 
-*Random Forest*
+### *Random Forest*
 ```
 # Train a Random Forest Classifier model and print the model score
 # Import a Random Forests classifier
@@ -94,18 +97,40 @@ Our data trained at a 95.97% training data score; with a testing data score of 9
 Our data trained at 100% with a testing stcore of 94.78%.
 
 ### Visualizations
-When looking at our data, you can see the coorelation between each individual risk factor (machine learning features) and their stroke risk.  From this map you can draw the conclusion that you even though you may have some risk factors; their is not a strong coorelation between any 2 of the factors and having a higher change of a stroke.
+When looking at our data, you can see the coorelation between each individual risk factor (machine learning features) and their stroke risk. From this map you can draw the conclusion that you even though you may have some risk factors; their is not a strong coorelation between any 2 of the factors and having a higher change of a stroke.
 
+**heatmap**
 
+Scatter plots were also created to show the relationship between BMI with the average glucose level; and the second plot for BMI compared with the patients age.
+**scatter plots**
+
+### Web Page
+Our data can be found at https://team-3-project-4.onrender.com/
+
+Our site contains 3 seperate pages, the home screen that shows the above visualizations. A data page that houses a table of the data of the 4,000+ patients that were in our data set. The 3rd page is the predictor page.  
+
+**predictor snapshot**
+
+This predictor page is the go to page that the user will input via drop downs their information. Upon completion of entereing your informaiton and pressing the submit button; the values makes a call out to our API; and check the values against our predictor model; and send back a result in teh form of a pop up box letting the user know if they are at risk or having a stroke or not.
+
+**risk indicator snapshot (both)**
 
 ### Future Adjustments
-If we had more time, I would suggest that we update the graphs, to match the user inputs for their stroke
+If we had more time, I would suggest that we update the graphs, to match the user inputs for their stroke.
 
-## ShoutOuts, License and Disclamimer
+Our data set also included 3 different factors that were not medical; residency type (urban, rural), marital status; and work type (private, government, self-employeed). It would be interesting to dive more into those factors to see if what changes, if any would be made to our machine learning model.
+
+There are many different machine learning models for us to choose from. We choose the models that we understood the best. Future adjustments could be made to look at additional models, to see if there are better outcomes; but our accuracy rating of just under 95% is fairly accurate.
+
+## Shout Outs, License and Disclamimer
 This is NOT medical advice. If you are concerned for your well-being please seek medical care, especially if you are experiencing any stroke like symptoms, please call 9-1-1 and seek emergency medical care.
+
+Stroke definition and signs of a stroke referenced in the powerpoint came from the Centers of Disease (CDC) https://www.cdc.gov/stroke/index.htm
 
 Brain image for PowerPoint
 https://www.freepik.com/free-photo/3d-brain-with-lightening_6214247.htm#query=brain%20stroke&position=27&from_view=keyword&track=ais
+
+BMI has a call out website https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmicalc.htm to help determine if a user doesn't readily know that data set. 
 
 © All work done by Project 4-Team 3 for the UMN Data Analytics Bootcamp.
 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
